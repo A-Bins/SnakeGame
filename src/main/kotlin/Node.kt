@@ -1,0 +1,1 @@
+data class Node(var canDraw: Boolean)
