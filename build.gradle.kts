@@ -41,7 +41,7 @@ application {
 
 tasks.withType<Jar> {
     manifest {
-        attributes["Main-Class"] = "SnakeGame"
+        attributes["Main-Class"] = "MainKt"
     }
 }
 

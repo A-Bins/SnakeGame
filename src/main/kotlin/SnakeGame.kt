@@ -1,14 +1,10 @@
+import SnakeGame.Companion.println
 import kotlinx.coroutines.delay
+import kotlinx.coroutines.launch
 import kotlinx.coroutines.runBlocking
+import java.util.Scanner
 
 
-
-suspend fun main(args: Array<String>) = runBlocking {
-    while (true) {
-        SnakeGame.printAll()
-        delay(500)
-    }
-}
 
 class SnakeGame {
 
@@ -16,6 +12,12 @@ class SnakeGame {
         val wall = '■'
         val map_size = 15
         val blank_size = map_size*2
+
+        val rows = mutableListOf<DrawRow>().apply {
+            repeat(map_size) {
+                add(DrawRow())
+            }
+        }
 
         fun horizontal() {
             repeat(map_size + 2) { "$wall ".print() }
@@ -29,7 +31,7 @@ class SnakeGame {
             println()
 
             var blank = ""
-            repeat(blank_size + 1) {
+            repeat(blank_size) {
                 blank += " "
             }
 
